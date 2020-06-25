@@ -1,0 +1,11 @@
+.card {
+    margin: 0 5%;
+    width: auto;
+    /* width: 1000px; */
+}
+
+.intern-data {
+    width: auto;
+    padding: 0 0;
+    overflow-x: visible;
+}

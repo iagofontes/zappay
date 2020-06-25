@@ -1,0 +1,58 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form">
+    <mat-form-field class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" placeholder="Felipe Augusto" [(ngModel)]="contact.name">
+        <mat-error *ngIf="!contactForm.controls.name.valid">
+            Name é <strong>necessário</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" placeholder="felipe@zappay.com.br" [(ngModel)]="contact.email">
+        <mat-error *ngIf="!contactForm.controls.email.valid">
+            Informe um e-mail válido
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <mat-label>Celular</mat-label>
+        <span matPrefix>+55 &nbsp;</span>
+        <input matInput formControlName="phone" placeholder="(11) 91265-1425" [(ngModel)]="contact.phone">
+        <mat-error *ngIf="!contactForm.controls.phone.valid">
+            Informe um e-mail válido
+        </mat-error>
+    </mat-form-field>
+
+    <div>
+        <mat-accordion class="example-headers-align">
+            <mat-expansion-panel expanded opened hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Contas
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Dados bancários do contato
+                        <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-selection-list #accounts [multiple]="false">
+                    <mat-list-option *ngFor="let account of contact.accounts">
+                        {{account.bank + account.agency + account.account}}
+                    </mat-list-option>
+                </mat-selection-list>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+    <mat-action-row>
+        <button mat-stroked-button color="warn" type="button" (click)="saveAccount()">Cancelar</button>
+        <button mat-stroked-button color="primary" type="submit">Salvar</button>
+    </mat-action-row>
+
+    <!-- <div style="text-align: right;">
+        <button mat-stroked-button color="primary" style="margin-left: 5%;" type="submit">Salvar</button>
+        <button mat-stroked-button color="warn" style="margin-left: 5%;" type="button"
+            (click)="onCancel()">Cancelar</button>
+    </div> -->
+</form>
