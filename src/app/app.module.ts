@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ParentLayoutComponent } from './components/parent-layout/parent-layout.component';
 import { AccountComponent } from './components/account/account.component';
 import { ContactService } from './services/contact.service';
+import { AccountModalComponent } from './components/account-modal/account-modal.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { ContactService } from './services/contact.service';
     ContactListComponent,
     ContactComponent,
     ParentLayoutComponent,
-    AccountComponent
+    AccountComponent,
+    AccountModalComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { ContactService } from './services/contact.service';
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [
     ContactService
